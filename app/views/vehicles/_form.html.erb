@@ -1,0 +1,20 @@
+<% disabled = false %>
+<% if @vehicle.type && @vehicle.type.to_s != 'Vehicle' %>
+	<%= hidden_field_tag :type, @vehicle.type.to_s %>
+	<% disabled = true %>
+<% end %>
+<div>
+	<%= f.label :type %>
+	<%= f.select :type, Vehicle.childs.map {|r| [r.humanize, r.camelcase]}, {}, disabled: disabled %>
+	<% if disabled %>
+		<%= f.hidden_field :type %>
+	<% end %>
+</div>
+<div>
+	<%= f.label :price %>
+	<%= f.number_field :price, step: 0.01 %>
+</div>
+<div>
+	<%= f.label :color %>
+	<%= f.text_field :color %>
+</div>

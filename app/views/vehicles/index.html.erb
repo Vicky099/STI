@@ -1,0 +1,18 @@
+<h1>Vehicle Information</h1>
+<table>
+	<tr>
+		<th>Type</th>
+		<th>Price</th>
+		<th>Color</th>
+	</tr>
+	<% @vehicles.each do |vehicle| %>
+		<tr>
+			<td><%= vehicle.type %></td>
+			<td><%= vehicle.price %></td>
+			<td><%= vehicle.color %></td>
+
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "New Vehicle", new_vehicle_path %>
